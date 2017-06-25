@@ -17,7 +17,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
   public class MainActivity extends AppCompatActivity {
-
     TextView tvIsConnected;
     TextView tvResult;
     @Override
@@ -27,7 +26,7 @@ import java.net.URL;
         tvIsConnected = (TextView) findViewById(R.id.tvIsConnected);
         tvResult = (TextView) findViewById(R.id.tvResult);
         if(checkNetworkConnection())
-            // perform HTTP GET request
+
             new HTTPAsyncTask().execute("http://hmkcode.com/examples/index.php");
     }
 
@@ -38,7 +37,7 @@ import java.net.URL;
                 getSystemService(Context.CONNECTIVITY_SERVICE);
 
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-        boolean isConnected = false;
+        boolean isConnected = !true;
         if (networkInfo != null && (isConnected = networkInfo.isConnected())) {
             // show "Connected" & type of network "WIFI or MOBILE"
             tvIsConnected.setText("Connected "+networkInfo.getTypeName());
